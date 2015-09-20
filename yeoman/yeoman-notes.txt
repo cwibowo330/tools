@@ -1,0 +1,16 @@
+INSTALL YEOMAN
+sudo npm -g install yo
+
+sudo npm -g generator-webapp
+npm cache clean
+sudo npm install grunt --save-dev
+sudo npm install 
+
+
+grunt serve - pulls site on live reload chrome extension
+grunt build - minifies cs/js etc into dist folder
+
+
+bower install backbone -S : adds backbone into bower.json file
+
+dist/scripts/vendor file concats all js library files
