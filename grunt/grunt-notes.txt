@@ -43,4 +43,20 @@ grunt.initConfig({
 });
 grunt.loadNpmTasks('grunt-contrib-concat');
 
+
 WATCH CONCAT JS and CSS files
+
+sudo npm install grunt-contrib-watch --save-dev
+
+Gruntfile.js
+watch: {
+  js: {
+    files: 'js/**/*.js',
+    tasks: ['concat'], 
+  },
+  css: {
+    files: 'css/**/*.css',
+    tasks: ['concat'], 
+  },
+},
+grunt.loadNpmTasks('grunt-contrib-watch');
