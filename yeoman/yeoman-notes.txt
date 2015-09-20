@@ -14,3 +14,37 @@ grunt build - minifies cs/js etc into dist folder
 bower install backbone -S : adds backbone into bower.json file
 
 dist/scripts/vendor file concats all js library files
+
+
+bower install + npm install to grab node modules and bower components
+
+- CREATE WEB APP
+yo
+npm cache clean
+sudo npm install grunt --save-dev
+sudo npm install 
+
+GRUNT SERVE
+- grunt serve (live reload chrome ext)
+- watches css/js files even if you add sass/js files
+
+GITHUB REPO:
+BOWER INSTALL + NPM INSTALL
+
+GRUNT BUILD
+- packages files into dist folder (production)
+- consolidates libraries, css, and js 
+- build will fail if js is not valid
+
+BOWER INSTALL LIBRARY
+- bower install backbone -S
+
+
+
+
+
+
+
+
+
+

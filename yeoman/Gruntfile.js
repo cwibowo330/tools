@@ -47,6 +47,10 @@ module.exports = function (grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       },
+      sass: {
+        files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        tasks: ['sass', 'postcss']
+      },
       styles: {
         files: ['<%= config.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'postcss']
@@ -160,6 +164,25 @@ module.exports = function (grunt) {
       }
     },
 
+    // Compiles Sass to CSS and generates necessary files if requested
+    sass: {
+      options: {
+        sourceMap: true,
+        sourceMapEmbed: true,
+        sourceMapContents: true,
+        includePaths: ['.']
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>/styles',
+          src: ['*.{scss,sass}'],
+          dest: '.tmp/styles',
+          ext: '.css'
+        }]
+      }
+    },
+
     postcss: {
       options: {
         map: true,
@@ -185,6 +208,10 @@ module.exports = function (grunt) {
       app: {
         src: ['<%= config.app %>/index.html'],
         ignorePath: /^(\.\.\/)*\.\./
+      },
+      sass: {
+        src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        ignorePath: /^(\.\.\/)+/
       }
     },
 
@@ -311,13 +338,6 @@ module.exports = function (grunt) {
             'styles/fonts/{,*/}*.*'
           ]
         }]
-      },
-      styles: {
-        expand: true,
-        dot: true,
-        cwd: '<%= config.app %>/styles',
-        dest: '.tmp/styles/',
-        src: '{,*/}*.css'
       }
     },
 
@@ -325,15 +345,14 @@ module.exports = function (grunt) {
     concurrent: {
       server: [
         'babel:dist',
-        'copy:styles'
+        'sass'
       ],
       test: [
-        'babel',
-        'copy:styles'
+        'babel'
       ],
       dist: [
         'babel',
-        'copy:styles',
+        'sass',
         'imagemin',
         'svgmin'
       ]
