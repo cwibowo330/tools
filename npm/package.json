@@ -1,0 +1,13 @@
+{
+  "name": "npm-app",
+  "version": "0.0.1",
+  "description": "My first App",
+  "author": "Claudia Wibowo",
+  "license": "ISC",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "grunt-sass": "^1.1.0-beta"
+  }
+}

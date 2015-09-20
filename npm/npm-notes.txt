@@ -1,0 +1,50 @@
+CREATE PACKAGE.JSON
+
+run in terminal: npm init (creates package.json file)
+- minimum requirement is name and version
+
+
+"npm install --save #package_name#" - saves package under dependecy for package.json
+run in terminal: sudo npm install --save grunt-sass
+- adds dependecy in package.json
+
+{
+  "name": "npm-app",
+  "version": "0.0.1",
+  "description": "My first App",
+  "author": "Claudia Wibowo",
+  "license": "ISC",
+  "dependencies": {
+    "grunt-sass": "^1.1.0-beta"
+  }
+}
+
+-delete node module and type "sudo npm install" to add grunt sass back in
+
+
+npm install --save #package_name# - saves package under dependecy for package.json
+npm install --save-dev #package_name# - saves package under DEVdependecy for package.json (not needed in production, such as sass)
+
+{
+  "name": "npm-app",
+  "version": "0.0.1",
+  "description": "My first App",
+  "author": "Claudia Wibowo",
+  "license": "ISC",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "grunt-sass": "^1.1.0-beta"
+  }
+}
+npm init: creates package.json
+npm install --save #package_name#
+npm list: shows all modules 
+npm -g list: shows global npm list
+npm outdate: list what modules need to be updated
+npm update: updates outdated modules
+npm uninstall grunt-sass: uninstalls grunt sass
+npm uninstall --save-dev grunt-sass: uninstalls and removes dependency in package.json
+npm prune: removes any packages not in the package.json file
+

@@ -1,0 +1,46 @@
+npm install -S grunt: installs grunt in folder
+touch Gruntfile.js: creates Gruntfile.js
+
+Gruntfile.js:
+module.exports = function(grunt) {
+
+};
+
+ADD TASKS
+module.exports = function(grunt) {
+	grunt.registerTask('speak', function(){ //
+		console.log("i'm speaking");
+	});
+	grunt.registerTask('yell', function(){
+		console.log("i'm YELLING");
+	});
+
+	// grunt both runs speak and yell task
+	grunt.registerTask('both', ['speak', 'yell']);
+
+	// run the below tasks with just "grunt"
+	grunt.registerTask('default', ['speak', 'yell']);
+
+};
+
+
+CONCAT JS and CSS files
+
+sudo npm install grunt-contrib-concat --save-dev
+
+Gruntfile.js
+
+grunt.initConfig({
+  concat: {
+    options: {
+      separator: ';',
+    },
+    dist: {
+      src: ['src/intro.js', 'src/project.js', 'src/outro.js'],
+      dest: 'dist/built.js',
+    },
+  },
+});
+grunt.loadNpmTasks('grunt-contrib-concat');
+
+WATCH CONCAT JS and CSS files
